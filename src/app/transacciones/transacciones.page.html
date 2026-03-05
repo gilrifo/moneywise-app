@@ -1,0 +1,69 @@
+<ion-header>
+ 
+  <ion-toolbar>
+     <ion-buttons slot="start">
+   <ion-back-button text="Atras"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Transacciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="add()">
+    <ion-item>
+      <ion-input formControlName="title" placeholder="Descripción"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" formControlName="amount" placeholder="Monto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="type">
+        <ion-select-option value="income">Ingreso</ion-select-option>
+        <ion-select-option value="expense">Gasto</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button expand="full" color="secondary" type="button" (click)="takePhoto()">
+        📷 Tomar Foto
+      </ion-button>
+    </ion-item>
+
+    <ion-item *ngIf="form.value.photo">
+      <img [src]="form.value.photo" alt="Foto" style="width: 100%; border-radius: 8px;" />
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Agregar</ion-button>
+  </form>
+
+  <ion-segment (ionChange)="onFilterChange($event)" value="all">
+  <ion-segment-button value="all">
+    <ion-label>Todos</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="income">
+    <ion-label>Ingresos</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="expense">
+    <ion-label>Gastos</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+  <ion-list>
+     <ion-item *ngFor="let t of filteredTransactions$ | async" [routerLink]="'/transaction-detail/' + t.id">
+      <ion-label>
+        <h2>{{ t.title }}</h2>
+        <p>{{ t.date | date:'short' }}</p>
+      </ion-label>
+
+      <ion-badge [color]="t.type === 'income' ? 'success' : 'danger'">
+        {{ t.type === 'income' ? '+' : '-' }} ${{ t.amount }}
+      </ion-badge>
+
+      
+
+      <img *ngIf="t.photo" [src]="t.photo" alt="Foto" style="width: 50px; margin-left: 10px; border-radius: 4px;">
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="login()">
+      Iniciar Sesión
+    </ion-button>
+
+    <ion-button expand="block" fill="clear" routerLink="/auth/register">
+      Crear cuenta
+    </ion-button>
+
+  </form>
+
+</ion-content>

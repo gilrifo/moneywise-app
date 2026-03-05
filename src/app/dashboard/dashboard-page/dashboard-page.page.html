@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Bienvenido a MoneyWise</h2>
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Resumen Financiero</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <h2>💰 Ingresos</h2>
+      <h1 style="color: green;">
+        ${{ income }}
+      </h1>
+
+      <h2>💸 Gastos</h2>
+      <h1 style="color: red;">
+        ${{ expense }}
+      </h1>
+
+      <hr>
+
+      <h2>📊 Balance Total</h2>
+      <h1>
+        ${{ total }}
+      </h1>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumen</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <canvas #chartCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-button expand="block" routerLink="/transacciones">
+    Ir a Transacciones
+  </ion-button>
+
+</ion-content>

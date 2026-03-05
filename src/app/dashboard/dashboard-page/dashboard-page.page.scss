@@ -1,0 +1,65 @@
+/* General */
+ion-content {
+  --background: #f0f2f5; /* fondo claro para toda la página */
+  padding: 1rem;
+}
+
+/* Bienvenida */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Tarjetas de resumen */
+ion-card {
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+ion-card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+ion-card-content h1 {
+  font-size: 2rem;
+  margin: 0.3em 0;
+}
+
+h2, h1 {
+  text-align: center;
+}
+
+/* Colores de ingresos y gastos */
+h1[style*="green"] {
+  color: #2dd36f; /* verde para ingresos */
+}
+
+h1[style*="red"] {
+  color: #eb445a; /* rojo para gastos */
+}
+
+/* Gráfico */
+canvas {
+  display: block;
+  margin: 0 auto;
+  max-height: 250px;
+}
+
+/* Botón de transacciones */
+ion-button {
+  margin-top: 1rem;
+  --border-radius: 12px;
+  --background: #3880ff;
+  --color: white;
+  font-weight: 600;
+}

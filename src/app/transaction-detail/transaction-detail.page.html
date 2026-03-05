@@ -1,0 +1,38 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles transacción</ion-title>
+    <ion-buttons slot="start">
+     <ion-back-button  text="Atras"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  
+<ion-content class="ion-padding">
+ 
+  <ion-card *ngIf="transaction">
+    <ion-card-header>
+      <ion-card-title>{{ transaction.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Monto:</strong> ${{ transaction.amount }}</p>
+      <p><strong>Tipo:</strong> {{ transaction.type }}</p>
+      <p><strong>Fecha:</strong> {{ transaction.date | date:'short' }}</p>
+
+    
+      <div *ngIf="transaction.photo">
+        <h3>Foto:</h3>
+        <img [src]="transaction.photo" alt="Foto transacción" style="width:100%; border-radius:8px; margin-top:10px;">
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" (click)="editTransaction()">
+    Editar
+  </ion-button>
+
+  <ion-button expand="block" color="danger" (click)="deleteTransaction()">
+    Eliminar
+  </ion-button>
+</ion-content>
