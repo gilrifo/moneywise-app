@@ -94,4 +94,4 @@ Proyecto académico desarrollado para la asignatura de
 
 ## 📄 Licencia
 
-Este proyecto es de u
+Este proyecto es de uso educativo
